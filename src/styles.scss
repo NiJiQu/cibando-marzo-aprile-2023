@@ -1,0 +1,22 @@
+/* You can add global styles to this file, and also import other style files */
+@import "../node_modules/bootstrap/dist/css/bootstrap.css";
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.bg-dark, header {
+  background-color: #8e210b !important;
+}
+
+nav {
+  margin-left: 10px;
+}
+
+#main-container {
+  padding: 16px;
+}
+
+html, body { height: 100%; }
