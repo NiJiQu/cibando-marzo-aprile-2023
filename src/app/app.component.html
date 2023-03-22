@@ -1,6 +1,7 @@
 <header>
-  <nav class="navbar navbar-expand-lg bg-body-tertiary navbar-dark bg-dark">
+  <nav class="navbar navbar-expand-lg bg-body-tertiary navbar-dark bg-red">
     <div class="container-fluid">
+      <img src="../assets/images/icona-cibando.png" class="icona-cibando">
       <a class="navbar-brand" href="#">Cibando</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -8,19 +9,39 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
+            <a class="nav-link active" aria-current="page" href="#"><mat-icon>home</mat-icon> Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Ricette</a>
+            <a class="nav-link" href="#"><mat-icon> restaurant</mat-icon> Ricette</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Contatti</a>
+            <a class="nav-link" href="#"><mat-icon> mail_outline</mat-icon> Contatti</a>
           </li>
         </ul>
       </div>
     </div>
   </nav>
 </header>
+
+<ngb-carousel *ngIf="images.length>1">
+	<ng-template ngbSlide *ngFor="let image of images">
+		<div class="picsum-img-wrapper">
+			<img [src]="percorso + image.id + '.jpg'" [alt]="image.label" />
+		</div>
+		<div class="carousel-caption">
+			<h3>{{image.label}}</h3>
+		</div>
+	</ng-template>
+</ngb-carousel>
+
+  <div class="picsum-img-wrapper" *ngIf="images.length===1">
+    <img [src]="percorso + images[0].id + '.jpg'" [alt]="images[0].label" />
+
+    <div class="carousel-caption">
+      <h3>{{images[0].label}}</h3>
+    </div>
+
+  </div>
 
 <div id="main-container">
 
@@ -29,6 +50,13 @@
     <p class="paragrafo">Ecco un testo dentro al paragrafo</p>
   </div>
 
+</div>
+
+<div id="contenitore-switch" [ngSwitch]="colore">
+  <div class="verde" *ngSwitchCase="'green'">Questo div compare solo se il colore è VERDE</div>
+  <div class="rosso" *ngSwitchCase="'red'">Questo div compare solo se il colore è ROSSO</div>
+  <div class="blu" *ngSwitchCase="'blue'">Questo div compare solo se il colore è BLU</div>
+  <div class="default" *ngSwitchDefault>Questo div compare solo se il colore non è stato scelto</div>
 </div>
 
 <router-outlet></router-outlet>
