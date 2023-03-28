@@ -1,5 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @import "../node_modules/bootstrap/dist/css/bootstrap.css";
+@import "./styles/colors.scss";
 
 body {
   margin: 0;
@@ -8,7 +9,7 @@ body {
 }
 
 .bg-red, header {
-  background-color: #8e210b !important;
+  background-color: $primary-color-1 !important;
 }
 
 nav {
@@ -23,7 +24,7 @@ html, body { height: 100%; }
 
 h2 {
   font-size: 35px !important;
-  color: #8e210b !important;
+  color: $primary-color-1 !important;
   font-family: 'Homemade Apple', cursive !important;
 }
 
@@ -34,12 +35,12 @@ h2 {
   h3 {
     font-family: "Homemade apple", cursive;
     font-size: 40px;
-    text-shadow: black 2px 3px 3px;
+    text-shadow: $secondary-color-4 2px 3px 3px;
   }
 }
 
 .testoEvidenziato {
-  background-color: yellow;
+  background-color: $primary-color-3;
   width: 400px;
 }
 
