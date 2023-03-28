@@ -9,3 +9,7 @@
   width: 60px;
   margin-right: 5px;
 }
+
+.navbar-expand-lg .navbar-collapse {
+  flex-direction: row-reverse;
+}

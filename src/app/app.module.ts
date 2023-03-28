@@ -14,6 +14,7 @@ import { HeaderComponent } from './shared/header/header.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { RecipeCardComponent } from './shared/recipe-card/recipe-card.component';
 import { DetailComponent } from './components/recipes/detail/detail.component';
+import { RecipesListComponent } from './components/recipes/recipes-list/recipes-list.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { DetailComponent } from './components/recipes/detail/detail.component';
     HeaderComponent,
     FooterComponent,
     RecipeCardComponent,
-    DetailComponent
+    DetailComponent,
+    RecipesListComponent
   ],
   imports: [
     BrowserModule,
