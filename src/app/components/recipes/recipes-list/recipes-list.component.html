@@ -1,4 +1,7 @@
 <div id="main-container">
   <h2>Le nostre ricette</h2>
-  <app-recipe-card [recipes]="ricette"></app-recipe-card>
+  <div style="height: 30px; margin-top: -15px">
+    <div class="comparsa" *ngIf="titoloRicetta">{{titoloRicetta}}</div>
+  </div>
+  <app-recipe-card [recipes]="ricette" (messaggio)="riceviMessaggio($event)"></app-recipe-card>
 </div>

@@ -11,6 +11,7 @@ export class RecipesListComponent implements OnInit {
 
   //Proprietà
   ricette: Recipe[];
+  titoloRicetta: string;
 
   constructor(private recipeService: RecipeService){}
 
@@ -26,5 +27,14 @@ export class RecipesListComponent implements OnInit {
   }
 
   //Metodi
+
+  riceviMessaggio(e: any){
+    if(this.titoloRicetta != e){
+      this.titoloRicetta = e;
+    } else {
+      this.titoloRicetta = "";
+    }
+
+  }
 
 }

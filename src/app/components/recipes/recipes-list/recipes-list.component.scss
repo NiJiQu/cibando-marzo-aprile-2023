@@ -1,4 +1,11 @@
+@import "../../../../styles/colors.scss";
+
 #main-container {
   text-align: center;
   margin-top: 30px;
+}
+
+.comparsa {
+  color: $primary-color-1;
+  font-weight: bold;
 }
