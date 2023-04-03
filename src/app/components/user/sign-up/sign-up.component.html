@@ -1,0 +1,158 @@
+<!-- <section class="vh-100" style="background-color: #eee;">
+  <div class="container h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-lg-12 col-xl-11">
+        <div class="card text-black" style="border-radius: 25px;">
+          <div class="card-body p-md-5">
+            <div class="row justify-content-center">
+              <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
+
+                <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4 black">Registrati</p>
+
+                <form class="mx-1 mx-md-4" #f="ngForm" (ngSubmit)="OnSubmit(f.value)">
+
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <mat-icon class="icon">person</mat-icon>
+                    <div class="form-outline flex-fill mb-0">
+                      <input type="text" id="form3Example1c" name="nome" class="form-control" placeholder="scrivi il tuo nome" ngModel/>
+                      <label class="form-label" for="form3Example1c">Il tuo nome</label>
+                    </div>
+                  </div>
+
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <mat-icon class="icon2"> email</mat-icon>
+                    <div class="form-outline flex-fill mb-0">
+                      <input type="email" id="form3Example3c" name="email" class="form-control" placeholder="email" ngModel/>
+                      <label class="form-label" for="form3Example3c">La tua Email</label>
+                      <p>Il campo Email è obbligatorio</p>
+                    </div>
+                  </div>
+
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <mat-icon class="icon2">lock</mat-icon>
+                    <div class="form-outline flex-fill mb-0">
+                      <input type="password" id="form3Example4c" name="password" class="form-control" placeholder="password" ngModel/>
+                      <label class="form-label" for="form3Example4c">Password</label>
+                      <p>Il campo Password è obbligatorio</p>
+                    </div>
+                  </div>
+
+                  <div class="d-flex flex-row align-items-center mb-4 ripeti">
+                    <i class="fas fa-key fa-lg me-3 fa-fw"></i>
+                    <div class="form-outline flex-fill mb-0">
+                      <input type="password" id="form3Example4cd" name="ripetiPassword" class="form-control" ngModel/>
+                      <label class="form-label" for="form3Example4cd">Ripeti password</label>
+                    </div>
+                  </div>
+
+                  <div class="form-check d-flex justify-content-center mb-5 termini">
+                    <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3c" name="accetto" ngModel/>
+                    <label class="form-check-label" for="form2Example3">
+                      Dichiaro di accettare i <a href="#!">Termini di servizio</a>
+                    </label>
+                  </div>
+
+                  <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                    <button type="submit" class="btn btn-primary btn-lg bottone">Registrati</button>
+                  </div>
+
+                </form>
+
+              </div>
+              <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2 image">
+
+                <img src="https://www.green.it/wp-content/uploads/2015/12/cibo-spazzatura.jpg"
+                  class="img-fluid image" alt="Sample image">
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> -->
+
+
+
+<section class="vh-100" style="background-color: #eee;">
+  <div class="container h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-lg-12 col-xl-11">
+        <div class="card text-black" style="border-radius: 25px;">
+          <div class="card-body p-md-5">
+            <div class="row justify-content-center">
+              <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
+
+                <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4 black">Registrati</p>
+
+                <form class="mx-1 mx-md-4" [formGroup]="form" (ngSubmit)="OnSubmit()">
+
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <mat-icon class="icon">person</mat-icon>
+                    <div class="form-outline flex-fill mb-0">
+                      <input type="text" id="form3Example1c" name="nome" class="form-control" placeholder="scrivi il tuo nome" formControlName="name"/>
+                      <label class="form-label" for="form3Example1c">Il tuo nome</label>
+                      <p class="help is-danger" *ngIf="form.get('name').touched && form.controls.name.hasError('required')">Il campo nome è obbligatorio</p>
+                    </div>
+                  </div>
+
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <mat-icon class="icon2"> email</mat-icon>
+                    <div class="form-outline flex-fill mb-0">
+                      <input type="email" id="form3Example3c" name="email" class="form-control" placeholder="email" formControlName="email"/>
+                      <label class="form-label" for="form3Example3c">La tua Email</label>
+                      <p class="help is-danger" *ngIf="form.get('email').touched && form.controls.email.hasError('required')">Il campo email è obbligatorio</p>
+                      <p class="help is-danger" *ngIf="form.get('email').touched && form.controls.email.hasError('email')">Il campo email non contiene una email valida</p>
+                    </div>
+                  </div>
+
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <mat-icon class="icon">lock</mat-icon>
+                    <div class="form-outline flex-fill mb-0">
+                      <!-- <input type="password" id="form3Example4c" name="password" class="form-control" placeholder="password" formControlName="password"/> -->
+                      <p-password [toggleMask]="true" formControlName="password" strongRegex="^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[^\w\d\s:])([^\s]){8,16}$"></p-password>
+                      <label class="form-label" for="form3Example4c">Password</label>
+                      <p class="help is-danger" *ngIf="form.get('password').touched && form.controls.password.hasError('required')">Il campo password è obbligatorio</p>
+                      <p class="help is-danger" *ngIf="form.get('password').touched && form.controls.password.hasError('pattern')">Password non valida</p>
+                    </div>
+                  </div>
+
+                  <div class="d-flex flex-row align-items-center mb-4 ripeti">
+                    <i class="fas fa-key fa-lg me-3 fa-fw"></i>
+                    <div class="form-outline flex-fill mb-0">
+                      <input type="password" id="form3Example4cd" name="ripetiPassword" class="form-control" formControlName="ripetiPassword"/>
+                      <label class="form-label" for="form3Example4cd">Ripeti password</label>
+                      <p class="help is-danger" *ngIf="form.get('ripetiPassword').touched && form.controls.ripetiPassword.hasError('required')">Il campo ripeti password è obbligatorio</p>
+                      <p class="help is-danger" *ngIf="form.getError('diversa') && form.get('ripetiPassword').touched">Attenzione la password inserita non è uguale</p>
+                    </div>
+                  </div>
+
+                  <div class="form-check d-flex justify-content-center mb-5 termini">
+                    <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3c" name="accetto" formControlName="accetto"/>
+                    <label class="form-check-label sposta" for="form2Example3">
+                      Dichiaro di accettare i <a href="#!">Termini di servizio</a>
+                    </label>
+                    <p class="help is-danger" *ngIf="form.get('accetto').touched && form.controls['accetto'].hasError('required')">Il campo accetto è obbligatorio</p>
+                  </div>
+
+                  <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                    <button type="submit" class="btn btn-primary btn-lg bottone" [disabled]="!form.valid">Registrati</button>
+                  </div>
+
+                </form>
+
+              </div>
+              <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2 image">
+
+                <img src="https://www.green.it/wp-content/uploads/2015/12/cibo-spazzatura.jpg"
+                  class="img-fluid image" alt="Sample image">
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

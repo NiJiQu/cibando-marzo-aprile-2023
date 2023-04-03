@@ -44,5 +44,16 @@ h2 {
   width: 400px;
 }
 
+.btn-primary{
+  background-color: $primary-color-1!important;
+  font-weight: 700;
+  border: none!important;
+}
+
+.p-password, .p-inputtext {
+  width: 100%!important;
+  float: right;
+}
+
 /* Importing Bootstrap SCSS file. */
 @import 'bootstrap/scss/bootstrap';

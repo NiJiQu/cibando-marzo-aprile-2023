@@ -1,0 +1,51 @@
+@import "../../../../styles/colors.scss";
+
+.black {
+  color: black!important;
+}
+
+.icon{
+  margin-top: -27px;
+  margin-right: 3px;
+}
+
+.icon2 {
+  margin-top: -46px;
+  margin-right: 3px;
+}
+
+.ripeti{
+  padding-left: 40px;
+}
+
+.termini {
+  padding-left: 55px;
+  flex-direction: column;
+}
+
+label, p {
+  color: $secondary-color-2;
+}
+
+p.help.is-danger{
+  margin-top: -13px;
+  color: red;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+input.ng-invalid.ng-touched {
+  border: 1px solid red;
+}
+
+input.ng-valid.ng-touched {
+  border: 1px solid green;
+}
+
+.sposta {
+  margin-top: -16px;
+  margin-bottom: 10px;
+}
+
+
+
