@@ -42,20 +42,22 @@ export class HomeComponent {
 
   prendiDatiUtente(){
     this.userService.datiUtente.subscribe((res: any) => {
-      localStorage.setItem('name', res.name),
-      localStorage.setItem('email', res.email);
+      // localStorage.setItem('name', res.name),
+      // localStorage.setItem('email', res.email);
+      this.name = res.name;
+      this.email = res.email;
     });
 
-    if(localStorage.getItem('name')){
-      this.name = localStorage.getItem('name');
-      this.email = localStorage.getItem('email');
-    }
+    // if(localStorage.getItem('name')){
+    //   this.name = localStorage.getItem('name');
+    //   this.email = localStorage.getItem('email');
+    // }
   }
 
   closeModal(){
-    localStorage.removeItem('name');
-    localStorage.removeItem('email');
-    localStorage.clear();
+    // localStorage.removeItem('name');
+    // localStorage.removeItem('email');
+    // localStorage.clear();
 
     this.name = '';
     this.email = '';

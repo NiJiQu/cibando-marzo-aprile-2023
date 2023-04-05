@@ -18,6 +18,7 @@ import { RecipeCardComponent } from './shared/recipe-card/recipe-card.component'
 import { DetailComponent } from './components/recipes/detail/detail.component';
 import { RecipesListComponent } from './components/recipes/recipes-list/recipes-list.component';
 import { SignUpComponent } from './components/user/sign-up/sign-up.component';
+import { PaginatorModule } from 'primeng/paginator';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { SignUpComponent } from './components/user/sign-up/sign-up.component';
     FormsModule,
     ReactiveFormsModule,
     PasswordModule,
-    DividerModule
+    DividerModule,
+    PaginatorModule
   ],
   providers: [],
   bootstrap: [AppComponent]

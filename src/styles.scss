@@ -55,5 +55,11 @@ h2 {
   float: right;
 }
 
+.p-paginator .p-paginator-pages .p-paginator-page.p-highlight {
+  background: #8e210bc6!important;
+  border-color: $primary-color-1!important;
+  color: black!important;
+}
+
 /* Importing Bootstrap SCSS file. */
 @import 'bootstrap/scss/bootstrap';

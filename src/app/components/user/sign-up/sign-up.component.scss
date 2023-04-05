@@ -47,5 +47,26 @@ input.ng-valid.ng-touched {
   margin-bottom: 10px;
 }
 
+.modal-header {
+  background-color: $primary-color-1;
+  height: 70px;
 
+  h3{
+    margin: 0!important;
+  }
+}
+
+.modal-footer {
+  background-color: $primary-color-1;
+
+  .btn-primary{
+    background-color: black!important;
+    border: none!important;
+    color: white;
+  }
+}
+
+.modal-content {
+  border: 1px solid black!important;
+}
 

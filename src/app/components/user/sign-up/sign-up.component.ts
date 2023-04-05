@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { CustomValidator } from '../customValidator';
-
 import { UserService } from 'src/app/services/user.service';
 import { Router } from '@angular/router';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-sign-up',
@@ -15,6 +15,7 @@ export class SignUpComponent {
   constructor(
     private userService: UserService,
     private router: Router,
+    private modalService: NgbModal
     ){}
 
   form = new FormGroup({
@@ -36,5 +37,15 @@ export class SignUpComponent {
     this.userService.datiUtente.next(user);
 
     this.router.navigate(['home']);
+  }
+
+  open(content: any, titolo?: string){
+    let title = titolo;
+
+    this.modalService.open(content, {ariaLabelledBy: 'modaleServizi', size: 'lg', centered: true}).result.then((res) => {
+      console.log('azione da eseguire ' + titolo)
+    }).catch((res) => {
+      console.log('nessuna azione da eseguire')
+    });
   }
 }
