@@ -2,12 +2,14 @@
   <div class="image" [ngStyle]="{'background-image': 'url(' + ricetta.image + ')'}"></div>
   <div>
     <h2 class="title">{{ricetta.title}}</h2>
-    <p class="description">{{ricetta.description}}</p>
+    <p class="description">
+      <span [innerHTML]="ricetta.description"></span>
+    </p>
     <div class="row">
       <h5 style="padding-top: 20px; font-weight: 900;">Difficoltà: {{ricetta.difficulty}}</h5>
     <img [src]="percorsoStelline + ricetta.difficulty + '.png'" class="difficoltà" alt="">
     </div>
-    <p class="data">Ricetta pubblicata il {{ricetta.date}}</p>
+    <p class="data">Ricetta pubblicata il {{ricetta.createdAt | date}}</p>
   </div>
 </div>
 

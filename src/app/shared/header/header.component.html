@@ -14,11 +14,23 @@
           <li class="nav-item">
             <a class="nav-link" routerLink="ricette"><mat-icon> restaurant</mat-icon> Ricette</a>
           </li>
+          <li class="nav-item" *ngIf="authService.isLogged()">
+            <a class="nav-link" routerLink="/ricette/new-recipe"><mat-icon>add_box</mat-icon> Nuova Ricetta</a>
+          </li>
           <li class="nav-item">
             <a class="nav-link" ><mat-icon> mail_outline</mat-icon> Contatti</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="registrazione"><mat-icon>person_add</mat-icon> Registrazione</a>
+          <li class="nav-item d-flex">
+            <mat-icon class="cerca-icon" routerLink="/ricette/results"> search</mat-icon>
+            <input type="text" class="nav-link cerca" placeholder="search" name="ricerca" [(ngModel)]="testo"/>
+          </li>
+          <li class="nav-item user2" *ngIf="!authService.isLogged()">
+            <a class="nav-link" routerLink="user/login"><mat-icon>person</mat-icon> Accedi</a>
+          </li>
+          <li class="nav-item user" *ngIf="authService.isLogged()">
+            <mat-icon>person</mat-icon><span class="name">Ciao {{user.name}}</span>
+            <a routerLink="user/profilo"> - Profilo</a>
+            <a class="nav-link" (click)="logout()"> - Esci</a>
           </li>
         </ul>
       </div>

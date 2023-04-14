@@ -1,0 +1,32 @@
+<div *ngIf="!(gruppiCombinati$ | async)" class="loading-container">
+  <h1>Caricamento</h1>
+  <img src="https://media.tenor.com/1s1_eaP6BvgAAAAC/rainbow-spinner-loading.gif">
+</div>
+<ng-template [ngIf]="gruppiCombinati$ | async">
+  <div class="d-flex" style="justify-content: space-around;">
+    <div>
+      <h3>Clienti:</h3>
+      <ul>
+        <li *ngFor="let cliente of gruppi[0]">
+          <b>Nome:</b> {{ cliente.name || cliente}}
+        </li>
+      </ul>
+    </div>
+    <div>
+      <h3>Rivenditori:</h3>
+      <ul>
+      <li *ngFor="let cliente of gruppi[1]">
+        <b>Rivenditore:</b> {{ cliente.name || cliente}}
+      </li>
+      </ul>
+    </div>
+    <div>
+      <h3>Marche:</h3>
+      <ul>
+        <li *ngFor="let cliente of gruppi[2]">
+          <b>Marcha:</b> {{ cliente.name || cliente }}
+        </li>
+      </ul>
+    </div>
+  </div>
+</ng-template>

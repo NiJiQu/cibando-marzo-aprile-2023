@@ -1,0 +1,79 @@
+<section class="vh-100 bg-image sfondo">
+  <div class="mask d-flex align-items-center h-100 gradient-custom-3">
+    <div class="container h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+          <div class="card" style="border-radius: 15px;">
+            <div class="card-body p-5">
+              <h2 class="text-uppercase text-center mb-5">Nuova ricetta</h2>
+
+              <form [formGroup]="form" (ngSubmit)="OnSubmit()">
+
+                <div class="form-outline mb-4">
+                  <label class="form-label" for="form3Example1cg">Titolo:</label>
+                  <input type="text" id="form3Example1cg" class="form-control form-control-lg" name="titolo" formControlName="titolo" />
+                  <p class="help is-danger" *ngIf="form.get('titolo').touched && form.controls.titolo.hasError('required')">Il campo titolo è obbligatorio</p>
+                </div>
+
+                <div class="form-outline mb-4">
+                  <label class="form-label" for="form3Example3cg">Descrizione:</label>
+                  <ckeditor [editor]="Editor" [config]="editorConfig" type="text" id="form3Example3cg" class="form-control form-control-lg descrizioneRicetta" formControlName="descrizione" />
+                  <p class="help is-danger" *ngIf="form.get('descrizione').touched && form.controls.descrizione.hasError('required')">Il campo descrizione è obbligatorio</p>
+                </div>
+
+                <div class="form-outline mb-4">
+                  <label class="form-label" for="form3Example4cg">Immagine:</label>
+                  <input type="text" id="form3Example4cg" class="form-control form-control-lg" formControlName="immagine" />
+                  <p class="help is-danger" *ngIf="form.get('immagine').touched && form.controls.immagine.hasError('required')">Il campo immagine è obbligatorio</p>
+                </div>
+
+                <div class="low-container">
+                  <div class="d-flex" style="width: 50%">
+                    <input type="checkbox" id="form3Example5cg" formControlName="pubblica">
+                    <label class="form-label" for="form3Example5cg">Pubblicare?</label>
+                  </div>
+
+                  <div class="d-flex" style="width: 50%; justify-content: end;">
+                    <label class="form-label" style="margin-right: 2px;" for="form3Example6cg">Difficoltà: </label>
+                    <select name="difficolta" id="form3Example6cg" style="border-radius: 1rem;" formControlName="difficolta">
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="d-flex justify-content-center">
+                  <button type="submit"
+                    class="btn btn-primary btn-block btn-lg gradient-custom-4 text-body" style="margin-top: 20px; color: white!important;" [disabled]="!form.valid" (click)="open(modaleRicetta)">Aggiungi</button>
+                </div>
+
+              </form>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<ng-template #modaleRicetta let-modal>
+  <div class="modal-header">
+    <h3>Ricetta aggiunta</h3>
+    <button type="button" class="btn-close" aria-label="close" (click)="modal.dismiss()"></button>
+  </div>
+
+  <div class="modal-body">
+    <h3>Titolo: {{form.value.titolo}}</h3>
+    <p>Descrizione: {{form.value.descrizione}}</p>
+    <p>Difficoltà: {{form.value.difficolta}}</p>
+  </div>
+
+  <div class="modal-footer">
+    <button type="button" class="btn" (click)="modal.dismiss()">chiudi</button>
+    <button type="button" class="btn btn-primary" (click)="modal.close()" ngbAutoFocus>Aggiungi</button>
+  </div>
+</ng-template>

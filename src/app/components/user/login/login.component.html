@@ -1,0 +1,20 @@
+<div class="background-container">
+  <form class="card-container" #f="ngForm" (ngSubmit)="onSubmit(f.value)">
+      <h2>Accedi a Cibando</h2>
+      <div class="email">
+        <label><b>Email</b></label>
+        <input name="email" type="text" ngModel>
+      </div>
+      <div>
+        <label><b>Password</b></label>
+        <p-password name="password" [feedback]="false" [toggleMask]="true" ngModel></p-password>
+      </div>
+      <div class="alert alert-danger" *ngIf="loginError">
+        {{loginError}}
+      </div>
+      <button type="submit" class="btn btn-primary btn-lg">Accedi</button>
+      <p style="margin-top: 15px;">Non sei ancora registrato?</p> <a routerLink="/user/registrazione">Registrati</a>
+  </form>
+</div>
+
+<p-toast position="bottom-right"></p-toast>

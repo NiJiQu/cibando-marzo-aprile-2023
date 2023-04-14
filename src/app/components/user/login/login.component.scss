@@ -1,0 +1,41 @@
+@import "../../../../styles/colors.scss";
+
+.background-container {
+  background-color: $secondary-color-2;
+  height: 600px;
+  display: flex;
+
+  .card-container {
+    background-color: $secondary-color-1;
+    border: 3px solid $primary-color-1;
+    height: 400px;
+    width: 50%;
+    margin: auto;
+    border-radius: 1rem;
+    text-align: center;
+
+    h2{
+      margin-top: 35px;
+    }
+
+    .email {
+      margin-top: 50px;
+      margin-bottom: 30px;
+
+      input{
+        width: 350px;
+        height: 32px;
+      }
+    }
+  }
+}
+
+label{
+  margin-right: 15px;
+}
+
+button{
+  margin-top: 60px;
+}
+
+

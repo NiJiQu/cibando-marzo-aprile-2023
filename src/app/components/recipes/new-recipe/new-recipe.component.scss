@@ -1,0 +1,51 @@
+@import "../../../../styles/colors.scss";
+
+.sfondo {
+  background-image: url("https://www.studiomedicofilippini.it/wp-content/uploads/2015/05/junk-food-cibo-spazzatura.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.low-container {
+  display: flex;
+
+  label{
+    margin-top: 8px;
+    margin-left: 2px;
+  }
+}
+
+label{
+  font-size: 16px;
+}
+
+p.help.is-danger{
+  color: red;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.modal-header {
+  background-color: $primary-color-1;
+  height: 70px;
+
+  h3{
+    margin: 0!important;
+    font-weight: bold;
+  }
+}
+
+.modal-footer {
+  background-color: $primary-color-1;
+
+  .btn-primary{
+    background-color: black!important;
+    border: none!important;
+    color: white;
+  }
+}
+
+.modal-content {
+  border: 1px solid black!important;
+}

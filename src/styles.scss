@@ -50,15 +50,36 @@ h2 {
   border: none!important;
 }
 
-.p-password, .p-inputtext {
-  width: 100%!important;
-  float: right;
-}
+// Nel form registrazione
+// .p-password, .p-inputtext {
+//   width: 100%!important;
+//   float: right;
+// }
 
 .p-paginator .p-paginator-pages .p-paginator-page.p-highlight {
   background: #8e210bc6!important;
   border-color: $primary-color-1!important;
   color: black!important;
+}
+
+// Nel form login
+.p-input-icon-right > .p-inputtext {
+  padding-right: 10rem!important;
+  margin-right: 30px!important;
+}
+
+.p-password, .p-inputtext {
+  width: auto !important;
+  float: none;
+}
+
+.p-inputtext{
+  border: 1px solid grey!important;
+}
+
+.descrizioneRicetta .ck-editor__editable {
+  min-height: 200px!important;
+  max-height: 200px!important;
 }
 
 /* Importing Bootstrap SCSS file. */

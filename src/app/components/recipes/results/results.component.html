@@ -1,0 +1,24 @@
+<div id="main-container">
+  <h2>Risultati</h2>
+  <div class="container-cards">
+    <div class="container-pagination" *ngIf="pag != 'home'">
+      <div style="font-size: 20px">
+        <strong>{{ricettePerPagina}}</strong> Ricette su un totale di <strong>{{ricette.length}}</strong> ricette, pagina corrente: <strong>{{page}}</strong>
+      </div>
+      <p-paginator (onPageChange)="paginate($event)" [rows]="ricettePerPagina" [totalRecords]="ricette.length" (rowPerPageOptionsChange)="ricettePerPagina"></p-paginator>
+    </div>
+    <div class="card-container" *ngFor="let recipe of recipes$ | async | slice: (page * ricettePerPagina) - ricettePerPagina : page * ricettePerPagina">
+      <div class="card">
+        <div class="card-image" [ngStyle]="{'background-image': 'url(' + recipe.image + ')'}" (click)="inviaTitolo(recipe.title)"></div>
+        <div class="card-body">
+          <h5 class="card-title">{{recipe.title}}</h5>
+          <p class="card-text">
+            <span [innerHTML]="recipe.description | slice: 0:250">...</span>
+          </p>
+          <a class="btn btn-primary" routerLink="/ricette/dettaglio/{{recipe.title}}/{{recipe._id}}">Visualizza</a>
+          <a class="btn btn-primary delete" *ngIf="ruolo === 'admin'">Elimina</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
